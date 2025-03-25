@@ -1,0 +1,54 @@
+@use "vars" as *;
+@import url("https://unpkg.com/filepond@^4/dist/filepond.css");
+@import url("https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css");
+
+/* Filepond overrides */
+
+.filepond--root {
+	margin-bottom: 0;
+	font-size: unset;
+	font-family: unset;
+}
+
+.filepond--panel-root { 
+	border-radius: 8px; 
+	background: #F5F5F5;
+	// border: 1px solid $br-primary;
+}
+
+.filepond--list {
+	// left: -4px;
+	// right: -4px;
+}
+
+.filepond--item { 
+	width: calc(33.33% - 8px);
+	// margin: 4px;
+}
+
+.filepond--root .filepond--drop-label { 
+	// min-height: 40px;
+	// padding: 0px 14px;
+	// align-items: flex-start; 
+	// justify-content: flex-start;
+	color: $accent-tertiary !important;
+	// & > label { 
+	// 	padding: 0; 
+	// 	color: inherit;
+	// }
+}
+
+
+// .filepond--drop-label {
+// 	transform: translate3d(0px, 0px, 0px) !important;
+// 	opacity: 1 !important;
+// 	visibility: visible !important;
+// }
+
+// .filepond--root .filepond--drop-label {
+// 	min-height: unset !important;
+// }
+
+// .filepond--drop-label.filepond--drop-label label {
+// 	padding: 0 !important;
+// }

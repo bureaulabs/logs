@@ -1,0 +1,25 @@
+@use "vars" as *;
+
+/* Details */
+
+details {
+	margin: 0;
+	padding: 0;
+}
+
+summary {
+	// font-size: var(--text-size-s);
+	color: $accent-tertiary;
+	cursor: pointer;
+	display: inline-block;
+}
+
+details[open] { 
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+details[open] summary {
+	padding: 0 0 20px 0;
+}

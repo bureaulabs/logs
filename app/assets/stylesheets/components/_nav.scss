@@ -1,0 +1,48 @@
+@use "vars" as *;
+
+/* Nav */
+
+nav {
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	transform: translateX(-470px);
+	top: 42px;
+	bottom: 40px;
+	gap: 24px;
+	&.left {
+		width: 120px;
+		left: 50%;
+		transform: translateX(-470px);
+	}
+	&.right {
+		width: 200px;
+		left: 50%;
+		transform: translateX(350px);
+	}
+	& a {
+		color: $accent-tertiary;
+		align-self: flex-start;
+		position: relative;
+		text-decoration: none;
+		// flex-shrink: 0;
+		&:hover {
+			text-decoration: none;
+			color: $accent-primary;
+		}
+		&.active {
+			color: $accent-primary;
+			text-decoration: none;
+			&:before {
+				content: "";
+				width: 6px;
+				height: 7px;
+				background: url(icons/active.svg) center center no-repeat;
+				position: absolute;
+				top: 3px;
+				left: -14px;
+			}
+		}
+	}
+}

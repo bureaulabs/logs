@@ -1,0 +1,17 @@
+@media only screen and (max-width: 640px) {
+	
+	.page-intro { padding: 24px; }
+	.page { padding: 24px; }
+	.site { width: 100% !important; }
+	.site-narrow { width: 100% !important; }
+	
+	.frame {
+		padding: 24px;
+		height: 60dvh;
+		& img { 
+			max-width: 88%;
+			max-height: 90%;
+		}
+	}
+	
+}

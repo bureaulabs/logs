@@ -1,0 +1,144 @@
+@use "vars" as *;
+
+/* Button */
+
+.btn {
+	display: inline-flex;
+	position: relative;
+	align-items: center;
+	justify-content: center;
+	// align-self: flex-start;
+	font-family: var(--font-primary);
+	font-size: var(--text-size-m);
+	// line-height: var(--text-size-m);
+	border-radius: 10px;
+	margin: 0;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	text-decoration: none !important;
+	padding: 11px;
+	height: 30px;
+	gap: 7px;
+	line-height: 0;
+	vertical-align: middle;
+	position: relative;
+	// Radius
+	&.rounded { border-radius: 99px; }
+	// Icons
+	&.icon-left { 
+		padding: 1px 12px 0 30px;
+		&.w-dp { padding: 1px 26px 0 30px; }
+		& .icon {
+			position: absolute;
+			// top: 2px;
+			left: 9px;
+		}
+	}
+	&.icon-only {
+		width: 30px;
+		padding: 0;
+    flex-shrink: 0;
+		& .icon { position: absolute; }
+	}
+	&.w-dp {
+		&:after {
+			content: "";
+			position: absolute;
+			width: 16px;
+			height: 16px;
+			top: 50%;
+			right: 6px;
+			transform: translateY(-50%);
+			background: url("icons/caret-down.svg") center center no-repeat;
+			stroke: $accent-tertiary;
+		}
+	}
+	// Styles
+	&.muted {
+		background: #F1F3F5;
+		color: $accent-secondary;
+		&:hover { background: darken(#F1F3F5, 5%); }
+	}
+	&.primary {
+		background: $accent-primary;
+		color: $accent-white;
+		&:hover { background: darken($accent-primary, 10%); }
+	}
+	&.action {
+		background: $accent-white;
+		color: $accent-secondary;
+		border: 1px solid #EEEEEE;
+		&:hover { border: 1px solid #DDDDDD; }
+	}
+	&.default {
+		background: var(--slate-3);
+		color: var(--slate-12);
+		&:hover { background: var(--slate-4); }
+	}
+	&.flat {
+		background-color: rgba(255, 255, 255, 0.25);
+		-webkit-backdrop-filter: blur(30px) brightness(1) opacity(1);
+		backdrop-filter: blur(10px) brightness(0.9) opacity(1);
+		color: $accent-secondary;
+		&:hover { 
+			background: rgba(238, 238, 238, 0.85);
+			-webkit-backdrop-filter: blur(10px);
+			backdrop-filter: blur(10px); 
+		}
+	}
+	// States
+	&:active {
+		transform: translateY(0.8px);
+	}
+}
+
+/* --- */
+
+.btn-stat {
+	padding-left: 28px;
+	position: relative !important;
+	color: $accent-tertiary;
+	& .icon {
+		position: absolute;
+		top: -3px;
+		left: 0;
+	}
+	&:hover {
+		color: $accent-primary;
+		text-decoration: none;
+		& .icon svg * { fill: $accent-primary; }
+	}
+}
+
+.btn-icon {
+	width: 26px;
+	height: 26px;
+	background: none;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	border-radius: 6px;
+	&:hover { background: #F5F5F5; }
+}
+
+.btn-with-caret {
+	height: 32px;
+	padding: 0 28px 0 12px;
+	background: #F2F2F2;
+	position: relative;
+	border-radius: 10px;
+	&:after {
+		content: "";
+		position: absolute;
+		top: 9px;
+		right: 8px;
+		width: 16px;
+		height: 16px;
+		background: url("/icons/caret-down.svg") center center no-repeat;
+	}
+	&:hover {
+		text-decoration: none;
+		background: #EEEEEE;
+	}
+}

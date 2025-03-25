@@ -1,0 +1,10 @@
+@use "vars" as *;
+
+body {
+	font-family: var(--font-primary);
+	font-feature-settings: "calt" off;
+	font-size: var(--text-size-m);
+	line-height: 100%;
+	background: #FFFFFF;
+	-webkit-font-smoothing: antialiased;
+}

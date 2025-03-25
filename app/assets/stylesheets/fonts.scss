@@ -1,0 +1,45 @@
+@font-face {
+	font-family: "Brunswick Grotesque";
+	font-style:  normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("BrunswickGrotesque-Regular.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Departure Mono";
+	font-style:  normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("DepartureMono-Regular.woff2") format("woff2");
+}
+
+/* HAUS Diatype */
+
+@font-face {
+	font-family: 'HAUS Diatype';
+	font-style:  normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("HAUSDiatype-Regular.woff") format("woff"),
+		 url("HAUSDiatype-Regular.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: 'HAUS Diatype';
+	font-style:  italic;
+	font-weight: 400;
+	font-feature-settings: 'ss01' on;
+	font-display: swap;
+	src: url("HAUSDiatype-RegularItalic.woff") format("woff"),
+		 url("HAUSDiatype-RegularItalic.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: 'HAUS Diatype';
+	font-style:  normal;
+	font-weight: 600;
+	font-display: swap;
+	src: url("HAUSDiatype-Bold.woff") format("woff"),
+		 url("HAUSDiatype-Bold.woff2") format("woff2");
+}

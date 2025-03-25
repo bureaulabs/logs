@@ -1,0 +1,164 @@
+@use "vars" as *;
+
+/* Forms + Inputs */
+
+form {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+label {
+	color: $accent-secondary;
+}
+
+::placeholder,
+::-webkit-input-placeholder,
+::-moz-placeholder,
+:-ms-input-placeholder,
+:-moz-placeholder {
+	color: $accent-faded !important;
+}
+
+input[type="number"] {
+	 -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	 -webkit-appearance: none;
+}
+
+input[type=text],
+input[type=email],
+input[type=date],
+input[type=number],
+input[type=password],
+textarea {
+	width: 100%;
+	height: 34px;
+	font-family: var(--font-primary);
+	font-size: var(--text-size-m);
+	line-height: var(--text-size-m);
+	border-radius: 6px;
+	margin: 0 !important;
+	padding: 1px 12px 0 12px;
+	border: 1px solid #E5E5E5;
+	// background: #F5F5F5;
+	outline: none;
+	// border: none;
+	// background: transparent;
+	// box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.01);
+}
+
+textarea {
+	font-family: var(--font-primary);
+	line-height: 148%;
+	// height: auto !important;
+	min-height: 100px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	// border: none;
+	resize: none;
+	&.flat {
+		padding: 0;
+		border-radius: 0;
+		border: none;
+		color: $accent-secondary;
+		background: #FFFFFF;
+		min-height: 30px;
+	}
+}
+
+input[type=email].special {
+	width: 240px;
+	background: #F2F2F2;
+	border: none;
+	border-radius: 8px;
+}
+
+.input-prefix {
+	width: 100%;
+	position: relative;
+	& > input[type=text] { padding: 1px 12px 0 62px; }
+	&:before {
+		content: "gist.so/";
+		color: $accent-tertiary;
+		position: absolute;
+		top: 3px;
+		height: 28px;
+		line-height: 28px;
+		padding: 0 0 0 12px;
+		// border-right: 1px solid #F2F2F2;
+	}
+}
+
+.disabled,
+input:disabled,
+textarea:disabled,
+.disable-while-submit {
+	opacity: 0.5;
+	cursor: not-allowed;
+	pointer-events: none;
+}
+
+.error-inline {
+	font-size: var(--text-size-s);
+	color: #E6442E;
+}
+
+.helptext {
+	font-size: var(--text-size-s);
+	color: $accent-tertiary;
+	line-height: 1.4;
+}
+
+.form-body {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	flex: 1;
+}
+
+.field-row {
+	display: flex;
+	flex-direction: row;
+	gap: 12px;
+	& > label {
+		color: $accent-tertiary;
+		width: 100px;
+		line-height: 34px;
+	}
+	& .field-group {
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+		gap: 6px;
+	}
+}
+
+.form-actions {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 16px;
+}
+
+/* ---- */
+
+form.inline {
+	padding: 24px;
+	height: 100%;
+}
+
+.request-success {
+	width: 240px;
+	height: 34px;
+	line-height: 34px;
+	background: #E0F4DF;
+	color: #3E7E3A;
+	text-align: center;
+	border: none;
+	border-radius: 8px;
+}

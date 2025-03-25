@@ -1,0 +1,13 @@
+.sticker {
+	width: 20px;
+	height: 20px;
+	// background: #CCCCCC;
+	&.hundred { 
+		background: url("/stickers/hundred.png") center center no-repeat; 
+		background-size: 20px 20px;
+	}
+	&.heart { 
+		background: url("/stickers/heart.png") center center no-repeat; 
+		background-size: 20px 20px;
+	}
+}

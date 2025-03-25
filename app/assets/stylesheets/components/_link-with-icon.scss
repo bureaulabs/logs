@@ -1,0 +1,15 @@
+@use "vars" as *;
+
+/* Link with icon */
+
+.link-with-icon {
+	display: inline-flex;
+	align-content: center;
+	padding-left: 22px;
+	position: relative;
+	& .icon {
+		position: absolute;
+		left: 0;
+		transform: translateY(0.5px);
+	}
+}

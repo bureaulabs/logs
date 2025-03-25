@@ -1,0 +1,35 @@
+@use "vars" as *;
+
+/* Flair */
+
+.flair {
+	font-family: var(--font-secondary);
+	font-size: 10px;
+	text-transform: uppercase;
+	// height: 24px;
+	// display: inline-flex;
+	align-items: center;
+	padding: 2px 4px 1px 4px;
+	border-radius: 4px;
+	margin: 0 0 0 2px;
+	&.default {
+		color: $accent-secondary;
+		border: 1px solid #EEEEEE;
+	}
+	&.debut {
+		color: #3B2D9E;
+		background: #E9E1FF;
+	}
+	&.dev {
+		color: #F04E43;
+		background: #F3F2F0;
+	}
+	&.member {
+		color: #41732A;
+		Background: #D2E8C8;
+	}
+	&.op {
+		color: #41732A;
+		Background: #D2E8C8;
+	}
+}

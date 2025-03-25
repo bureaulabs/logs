@@ -1,0 +1,45 @@
+@use "vars" as *;
+
+/* Icon */
+
+.avatar {
+	background: #EEEEEE;
+	background-size: 16px 16px;
+	flex-shrink: 0;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 1;
+	
+	// Size
+	&.small {
+		width: 24px;
+		height: 24px;
+	}
+	&.medium {
+		width: 40px;
+		height: 40px;
+	}
+	&.large {
+		width: 64px;
+		height: 64px;
+	}
+	
+	// Type
+	&.user { border-radius: 99px; }
+	&.project { border-radius: 6px; }
+	
+	// Inherited 
+	& > svg,
+	& > img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+	&:active { transform: translateY(0.8px); }
+	&:hover img {
+		text-decoration: none !important;
+		// filter: opacity(0.9);
+	}
+}

@@ -1,0 +1,314 @@
+:root {
+	
+	/* Fonts */
+	--font-primary: "Brunswick Grotesque", system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+	--font-secondary: "Departure Mono", monospace !important;
+	
+	/* Font sizing */
+	--text-size-s: 11px;
+	--text-size-m: 13px;
+	--text-size-l: 16px;
+	
+	/* Colors */
+	--ds-white-100: #FFFFFF;
+	--ds-black-100: #000000;
+	--ds-grey-100: #F8F8F8;
+	--ds-grey-200: #EAEAEA;
+	--ds-grey-300: #DBDBDB;
+	--ds-grey-400: #B7B7B7;
+	--ds-grey-500: #9B9B9B;
+	--ds-grey-600: #8F8F8F;
+	--ds-grey-700: #686868;
+	--ds-grey-800: #454545;
+	--ds-grey-900: #363636;
+	--ds-grey-1000: #272727;
+	--ds-grey-1100: #202020;
+	--ds-grey-1200: #151515;
+}
+
+/* TOKENS 
+   Use: Global, components, custom classes.
+*/
+
+/* Backgrounds */
+$bg-primary: var(--ds-white-100);
+$bg-secondary: var(--ds-grey-100);
+
+/* Borders */
+$br-primary: var(--ds-grey-200);
+
+/* Foregrounds */
+$fg-primary: var(--ds-grey-1200);
+$fg-secondary: var(--ds-grey-700);
+$fg-tertiary: var(--ds-grey-500);
+
+$accent-primary: #151515;
+$accent-secondary: #656565;
+$accent-tertiary: #959595;
+$accent-faded: #BBBBBB;
+$accent-white: #FFFFFF;
+$accent-red: #F64D36;
+
+/* TOKEN CLASSES */
+.font-primary { font-family: var(--font-primary); }
+.font-secondary { font-family: var(--font-secondary); text-transform: uppercase; }
+.bg-primary { background: $bg-primary; }
+.bg-secondary { background: $bg-secondary; }
+.fg-primary { color: $fg-primary; }
+.fg-secondary { color: $fg-secondary; }
+.fg-tertiary { color: $fg-tertiary; }
+
+/* Body classes */
+.no-scroll { overflow: hidden !important; }
+
+/* Separators */
+hr {
+	width: 100%;
+	border: none;
+	border-bottom: 1px solid #F2F2F2;
+}
+
+.middot {
+	background: url("dot.svg") center center no-repeat;
+	width: 3px;
+	height: 3px;
+}
+
+.border-top { border-top: 1px solid $br-primary; }
+.border-right { border-right: 1px solid $br-primary; }
+.border-bottom { border-bottom: 1px solid $br-primary; }
+.border-left { border-left: 1px solid $br-primary; }
+
+/* Typography */
+
+h1 {
+	font-size: 16px;
+	line-height: 140%;
+	font-weight: normal;
+	color: $accent-primary;
+}
+
+a { 
+	display: inline-flex;
+	align-content: center;
+	align-items: center;
+	gap: 6px;
+	color: inherit; 
+	text-decoration-line: none;
+	text-decoration-style: dotted;
+	text-decoration-skip-ink: auto;
+	text-decoration-thickness: 6%;
+	text-underline-offset: 1px;
+	text-underline-position: from-font;
+	&:hover { text-decoration-line: underline; }
+	&.active { color: $accent-primary !important; }
+	&.emphasis { 
+		text-decoration-line: underline; 
+		&:hover { text-decoration-style: solid; }
+	}
+	&.card-link {
+		&:hover { text-decoration: none; }
+		&::after {
+			content: "";
+			position: absolute;
+			left: -30px;
+			top: -30px;
+			right: -30px;
+			bottom: -30px;
+		}
+	}
+}
+
+a[aria-disabled="true"] { 
+	opacity: 0.5;
+	cursor: not-allowed; 
+}
+
+a[aria-disabled="true"]:active { pointer-events: none; }
+
+p { 
+	line-height: 1.6;
+	// color: $accent-secondary; 
+	hyphens: auto;
+	& a { 
+		text-decoration-line: underline; 
+		&:hover { text-decoration-style: solid; }
+	}
+}
+
+span { font-size: var(--text-size-s); }
+
+.link-disabled {
+	opacity: 0.5;
+	cursor: not-allowed !important;
+}
+
+.indicator {
+	position: relative;
+	&:after {
+		content: "";
+		background: url("indicator.svg") center center no-repeat;
+		width: 5px;
+		height: 5px;
+		position: absolute;
+		top: -2px;
+		right: -8px;
+	}
+}
+
+.inherited {
+	position: relative;
+	padding: 0 0 0 18px;
+	background: url("icons/inherit.svg") 0px 2px no-repeat;
+	stroke: $accent-tertiary;
+}
+
+.notice {
+	width: 100%;
+	background: #FFF8ED;
+	color: #D8850A;
+	padding: 12px 24px;
+	display: flex;
+	justify-content: center;
+}
+
+.scroll-y { overflow-y: auto; }
+
+
+/* Organisation */
+
+.stack {
+	display: flex;
+	&.row { 
+		flex-direction: row; 
+		flex-shrink: 0;
+		align-items: center;
+		&.push-start { align-items: flex-start; }
+		&.push-middle { justify-content: center; }
+		&.push-end { align-items: flex-end; }
+	}
+	&.col { 
+		width: 100%;
+		flex-direction: column; 
+		&.push-start { justify-content: flex-start; }
+		&.push-middle { align-items: center; }
+		&.push-end { justify-content: flex-end; }
+	}
+	&.collapsible { display: inline-flex !important; }
+}
+
+.pos-rel { 
+	position: relative;
+	z-index: 1; 
+}
+
+.text-height { height: 13px; }
+
+.push-apart { justify-content: space-between; }
+.dont-collapse { flex-shrink: 0; }
+.expand { flex-grow: 1; }
+
+.gap-2 { gap: 2px !important; }
+.gap-4 { gap: 4px !important; }
+.gap-6 { gap: 6px !important; }
+.gap-8 { gap: 8px !important; }
+.gap-12 { gap: 12px !important; }
+.gap-16 { gap: 16px !important; }
+.gap-20 { gap: 20px !important; }
+.gap-24 { gap: 24px !important; }
+.gap-32 { gap: 32px !important; }
+.gap-40 { gap: 40px !important; }
+.gap-48 { gap: 48px !important; }
+.gap-60 { gap: 60px !important; }
+.gap-100 { gap: 100px !important; }
+
+.padding-2 { padding: 2px !important; }
+.padding-4 { padding: 4px !important; }
+.padding-8 { padding: 8px !important; }
+.padding-16 { padding: 16px !important; }
+.padding-20 { padding: 20px !important; }
+.padding-24 { padding: 24px !important; }
+
+.padding-modal-content { padding: 24px 24px 72px 24px !important; }
+
+.width-full { width: 100%; }
+.height-full { height: 100%; }
+
+.width-80 { width: 80px !important; }
+.width-100 { width: 100px !important; }
+.width-120 { width: 120px !important; }
+
+.max-width-two-thirds { max-width: 66.66% }
+
+.force-height-100 { min-height: 100dvh; }
+
+/* Floaters */
+
+.floater {
+	position: fixed !important;
+	z-index: 99;
+	&.top { top: 24px; }
+	&.right { right: 24px; }
+	&.bottom { bottom: 24px; }
+	&.left { left: 24px; }
+	&.h-center { 
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	&.v-center { 
+		top: 50%;
+		transform: translateY(-50%);
+	}
+}
+
+/* Panels */
+
+.panel-with-avatar {
+	display: flex;
+	flex-direction: column;
+	padding: 0 0 0 54px;
+	position: relative !important;
+	& > .avatar {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}
+
+.panel-with-icon {
+	padding-left: 24px;
+	position: relative !important;
+	& > .icon {
+		position: absolute;
+		top: 3px;
+		left: 0;
+	}
+}
+
+.panel-with-indent {
+	margin-left: 2px;
+	padding-left: 16px;
+	position: relative;
+	&:before {
+		content: "";
+		border-left: 1px solid #EEEEEE;
+		position: absolute;
+		left: 0;
+		top: 2px;
+		bottom: 2px;
+	}
+}
+
+/* Random */
+
+.tab {
+	height: 30px;
+	line-height: 30px;
+	padding: 0 14px;
+	border-radius: 30px;
+	background: #F5F5F5;
+	&.active {
+		background: #151515;
+		color: #FFFFFF !important;
+	}
+}

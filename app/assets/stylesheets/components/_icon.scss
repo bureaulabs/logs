@@ -1,0 +1,37 @@
+@use "vars" as *;
+
+/* Icon */
+
+.icon {
+	display: inline-block;
+	flex-shrink: 0;
+	width: 16px;
+	height: 16px;
+	&.mask-primary svg * { fill: $fg-primary; }
+	&.mask-secondary svg * { fill: $fg-secondary; }
+	&.mask-tertiary svg * { fill: $fg-tertiary; }
+	&.mask-white svg * { fill: $accent-white; }
+	&.mask-red svg * { fill: $accent-red; }
+	& > svg { 
+		width: 16px; 
+		height: 16px;
+	}
+	&.icon-larger {
+		width: 20px;
+		height: 20px;
+		transform: unset;
+		& svg { 
+			width: 20px;
+			height: 20px;
+		}
+	}
+	&.icon-smaller {
+		width: 12px;
+		height: 12px;
+		transform: translateY(-0.2px);
+		& svg { 
+			width: 12px;
+			height: 12px;
+		}
+	}
+}
