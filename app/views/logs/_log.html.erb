@@ -1,32 +1,5 @@
-<div id="<%= dom_id log %>">
-  <p>
-    <strong>Url:</strong>
-    <%= log.url %>
-  </p>
-
-  <p>
-    <strong>Slug:</strong>
-    <%= log.slug %>
-  </p>
-
-  <p>
-    <strong>Title:</strong>
-    <%= log.title %>
-  </p>
-
-  <p>
-    <strong>Caption:</strong>
-    <%= log.caption %>
-  </p>
-
-  <p>
-    <strong>Category:</strong>
-    <%= log.category_id %>
-  </p>
-
-  <p>
-    <strong>Metadata raw:</strong>
-    <%= log.metadata_raw %>
-  </p>
-
+<div id="<%= dom_id log %>" class="stack col gap-4 padding-24 border-right border-bottom">
+  <p><%= link_to log.title, log.url, target: "_blank" %></p>
+  <p><%= log.caption %></p>
+  <p class="fg-tertiary"><%= log.category.name %></p>
 </div>

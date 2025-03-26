@@ -25,6 +25,7 @@ gem "image_processing", "~> 1.2"
 gem "aws-sdk-s3", require: false
 gem "view_component"
 gem "meta-tags"
+gem "metainspector"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"

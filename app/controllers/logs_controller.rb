@@ -22,10 +22,14 @@ class LogsController < ApplicationController
   # POST /logs or /logs.json
   def create
     @log = Log.new(log_params)
-
+		page = MetaInspector.new(@log.og_url)
+		@log.url = page.untracked_url || page.url
+		@log.title = page.best_title
+		@log.caption = page.best_description
+		@log.metadata_raw = page.to_hash
     respond_to do |format|
       if @log.save
-        format.html { redirect_to @log, notice: "Log was successfully created." }
+        format.html { redirect_to edit_log_path(@log), notice: "Log was successfully created." }
         format.json { render :show, status: :created, location: @log }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -65,6 +69,6 @@ class LogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def log_params
-      params.expect(log: [ :url, :slug, :title, :caption, :category_id, :metadata_raw ])
+      params.expect(log: [ :og_url, :url, :slug, :title, :caption, :category_id, :metadata_raw ])
     end
 end

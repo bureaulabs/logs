@@ -3,6 +3,7 @@ class CreateLogs < ActiveRecord::Migration[8.0]
     create_table :logs do |t|
       t.string :og_url
       t.string :url
+      t.string :host
       t.string :slug
       t.string :title
       t.string :caption

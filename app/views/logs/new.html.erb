@@ -1,11 +1,27 @@
-<% content_for :title, "New log" %>
+<%= form_with(model: @log) do |form| %>
+	<% if @log.errors.any? %>
+		<div style="color: red">
+			<h2><%= pluralize(@log.errors.count, "error") %> prohibited this log from being saved:</h2>
 
-<h1>New log</h1>
+			<ul>
+				<% @log.errors.each do |error| %>
+					<li><%= error.full_message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
 
-<%= render "form", log: @log %>
+	<div>
+		<%= form.label :og_url, style: "display: block" %>
+		<%= form.text_field :og_url %>
+	</div>
+	
+	<div>
+		<%= form.label :category, style: "display: block" %>
+		<%= form.collection_select(:category_id, Category.all, :id, :name, {:prompt => 'Pick a category'}, required: true) %>
+	</div>
 
-<br>
-
-<div>
-  <%= link_to "Back to logs", logs_path %>
-</div>
+	<div>
+		<%= form.submit %>
+	</div>
+<% end %>

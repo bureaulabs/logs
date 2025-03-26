@@ -1,3 +1,9 @@
 class Log < ApplicationRecord
-  belongs_to :category
+  
+	# Relationships
+	belongs_to :category
+	
+	# Activestorage
+	has_one_attached :cover
+	
 end
