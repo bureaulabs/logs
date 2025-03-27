@@ -5,5 +5,12 @@ module ApplicationHelper
 			raw file.read
 		end
 	end
+	
+	def working_url?(url)
+		uri = URI.parse(url)
+		uri.is_a?(URI::HTTP) && !uri.host.nil?
+		rescue URI::InvalidURIError
+		false
+	end
 
 end

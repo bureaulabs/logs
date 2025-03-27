@@ -1,21 +1,23 @@
 import { Controller } from "@hotwired/stimulus"
+import "imagesLoaded"
+import "masonry"
 
 export default class extends Controller {
   
 	connect() {
-    var grid = Macy({
-			container: this.element,
-			trueOrder: false,
-			waitForImages: false,
-			margin: 0,
-			columns: 4,
-			breakAt: {
-					1200: 5,
-					940: 3,
-					520: 2,
-					400: 1
-			}
+		
+		var grid = new Masonry(this.element, {
+			// options
+			itemSelector: ".card",
+			columnWidth: ".card-sizer",
+			percentPosition: true
 		});
+		
+		imagesLoaded(this.element).on("progress", function() {
+			// layout Masonry after each image loads
+			grid.layout();
+		});
+		
   }
 	
 }

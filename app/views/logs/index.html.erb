@@ -2,9 +2,10 @@
 
 <% content_for :title, "Logs" %>
 
-<h1>Logs, <%= link_to "New log", new_log_path %></h1>
+<h1 class="site"><%= link_to "New log", new_log_path %></h1>
 
 <div id="logs" data-controller="grid">
+	<div class="card-sizer"></div>
   <% @logs.each do |log| %>
     <%= render log %>
   <% end %>

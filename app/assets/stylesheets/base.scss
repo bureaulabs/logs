@@ -8,3 +8,55 @@ body {
 	background: #FFFFFF;
 	-webkit-font-smoothing: antialiased;
 }
+
+.card-sizer, .card { width: 25dvw; }
+
+.card {
+	// width: 33.33%;
+	// float: left;
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	padding: 2.7dvw 3dvw;
+	position: relative;
+	// border: 1px solid #F2F2F2;
+	// margin: -1px;
+	border-right: 1px solid #EEEEEE;
+	border-bottom: 1px solid #EEEEEE;
+	// box-sizing: content-box;
+	background: #FFFFFF;
+	&:before {
+		content: "";
+		border-left: 1px solid #EEEEEE;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: -1px;
+	}
+	& .cover { 
+		border-radius: 6px; 
+		overflow: hidden;
+		& > * { 
+			display: block;
+			border-radius: 6px; 
+		}
+	}
+}
+
+.site {
+	position: fixed;
+	right: 24px;
+	bottom: 24px;
+	z-index: 999;
+}
+
+.favicon {
+	width: 14px;
+	height: 14px;
+	border-radius: 4px;
+	overflow: hidden;
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	& > img { width: 100%; height: 100%; }
+}

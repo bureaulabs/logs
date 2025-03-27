@@ -1,5 +1,25 @@
-<div id="<%= dom_id log %>" class="stack col gap-4 padding-24 border-right border-bottom">
-  <p><%= link_to log.title, log.url, target: "_blank" %></p>
-  <p><%= log.caption %></p>
-  <p class="fg-tertiary"><%= log.category.name %></p>
+<div id="<%= dom_id log %>" class="card">
+	<% if log.cover.representable? %>
+		<div class="cover">
+			<%= image_tag url_for(log.cover) %>
+		</div>
+	<% end %>
+	<div class="stack col gap-12">
+		<div class="stack col gap-4">
+			<span class="fg-tertiary"><%= log.host %></span>
+			<p style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap;"><%= link_to log.title, log.url, target: "_blank" %></p>
+			<p class="fg-secondary"><%= log.caption %></p>
+		</div>
+		<div class="stack row gap-4">
+			<% if working_url?(log.site.favicon) %>
+				<span class="flair default with-icon">
+					<i class="favicon"><%= image_tag url_for(log.site.favicon) %></i>
+					<%= log.site.url %>
+				</span>
+			<% else %>
+				<span class="flair default"><%= log.site.url %></span>
+			<% end %>
+			<span class="flair default"><%= log.category.name %></span>
+		</div>
+	</div>
 </div>

@@ -1,9 +1,11 @@
 class LogsController < ApplicationController
   before_action :set_log, only: %i[ show edit update destroy ]
+	
+	require "pp"
 
   # GET /logs or /logs.json
   def index
-    @logs = Log.all
+    @logs = Log.order(created_at: :desc)
   end
 
   # GET /logs/1 or /logs/1.json
@@ -27,6 +29,7 @@ class LogsController < ApplicationController
 		@log.title = page.best_title
 		@log.caption = page.best_description
 		@log.metadata_raw = page.to_hash
+		@log.site = Site.where(url: page.host).first_or_create(favicon: page.images.favicon)
     respond_to do |format|
       if @log.save
         format.html { redirect_to edit_log_path(@log), notice: "Log was successfully created." }
@@ -42,7 +45,7 @@ class LogsController < ApplicationController
   def update
     respond_to do |format|
       if @log.update(log_params)
-        format.html { redirect_to @log, notice: "Log was successfully updated." }
+        format.html { redirect_to root_path, notice: "Log was successfully updated." }
         format.json { render :show, status: :ok, location: @log }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -69,6 +72,6 @@ class LogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def log_params
-      params.expect(log: [ :og_url, :url, :slug, :title, :caption, :category_id, :metadata_raw ])
+      params.expect(log: [ :og_url, :url, :slug, :title, :caption, :category_id, :cover])
     end
 end
