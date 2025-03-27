@@ -1,6 +1,6 @@
 class Site < ApplicationRecord
 	
 	# Relationships
-	has_many :logs
+	has_many :entries
 	
 end

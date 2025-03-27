@@ -1,0 +1,10 @@
+<% content_for :title, "Logs" %>
+
+<h1 class="site"><%= link_to "New entry", new_entry_path %></h1>
+
+<div id="logs" data-controller="grid">
+	<div class="card-sizer"></div>
+	<% @entries.each do |entry| %>
+		<%= render entry %>
+	<% end %>
+</div>

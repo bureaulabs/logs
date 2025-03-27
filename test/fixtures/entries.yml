@@ -1,17 +1,23 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  og_url: MyString
   url: MyString
   slug: MyString
   title: MyString
   caption: MyString
   category: one
+  site: one
   metadata_raw: MyString
+  props: 
 
 two:
+  og_url: MyString
   url: MyString
   slug: MyString
   title: MyString
   caption: MyString
   category: two
+  site: two
   metadata_raw: MyString
+  props: 

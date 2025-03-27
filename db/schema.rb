@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_27_091428) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_27_125750) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -48,6 +48,23 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_27_091428) do
     t.index ["slug"], name: "index_categories_on_slug", unique: true
   end
 
+  create_table "entries", force: :cascade do |t|
+    t.string "og_url"
+    t.string "url"
+    t.string "slug"
+    t.string "title"
+    t.string "caption"
+    t.integer "category_id", null: false
+    t.integer "site_id", null: false
+    t.string "metadata_raw"
+    t.json "props"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_entries_on_category_id"
+    t.index ["site_id"], name: "index_entries_on_site_id"
+    t.index ["slug"], name: "index_entries_on_slug", unique: true
+  end
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -59,23 +76,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_27_091428) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
-  create_table "logs", force: :cascade do |t|
-    t.string "og_url"
-    t.string "url"
-    t.string "host"
-    t.string "slug"
-    t.string "title"
-    t.string "caption"
-    t.integer "category_id", null: false
-    t.string "metadata_raw"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "site_id"
-    t.index ["category_id"], name: "index_logs_on_category_id"
-    t.index ["site_id"], name: "index_logs_on_site_id"
-    t.index ["slug"], name: "index_logs_on_slug", unique: true
-  end
-
   create_table "sites", force: :cascade do |t|
     t.string "favicon"
     t.string "url"
@@ -85,6 +85,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_27_091428) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "logs", "categories"
-  add_foreign_key "logs", "sites"
+  add_foreign_key "entries", "categories"
+  add_foreign_key "entries", "sites"
 end
