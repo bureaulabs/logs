@@ -1,0 +1,13 @@
+<div class="stack col gap-16 padding-24 max-width-500">
+	<%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
+	<%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
+	<%= form_with url: session_path do |form| %>
+		<div class="stack col gap-12">
+			<div class="stack col gap-6">
+				<%= form.email_field :email, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email] %>
+				<%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72 %>
+			</div>
+			<%= form.submit "Sign in", class: "btn primary" %>
+		</div>
+	<% end %>
+</div>

@@ -20,6 +20,7 @@ gem "solid_queue"
 gem "solid_cable"
 
 # Stuff
+gem "bcrypt", "~> 3.1"
 gem "friendly_id", "~> 5.5.0"
 gem "image_processing", "~> 1.2"
 gem "aws-sdk-s3", require: false

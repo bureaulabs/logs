@@ -1,0 +1,5 @@
+<% password_digest = BCrypt::Password.create("AltisPrime!66") %>
+
+one:
+  email: hello@sidd.me
+  password_digest: <%= password_digest %>

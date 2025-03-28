@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+	resource :session
+	resources :passwords, param: :token
 	resources :entries
 
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
