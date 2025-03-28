@@ -3,7 +3,7 @@ class EntriesController < ApplicationController
 
   # GET /entries or /entries.json
   def index
-    @entries = Entry.all
+    @entries = Entry.published.order(created_at: :desc)
   end
 
   # GET /entries/1 or /entries/1.json
@@ -13,10 +13,13 @@ class EntriesController < ApplicationController
   # GET /entries/new
   def new
     @entry = Entry.new
+		@drafts = Entry.drafts.order(created_at: :desc)
   end
 
   # GET /entries/1/edit
   def edit
+		@categories = Category.all
+		@metadata = eval(@entry.metadata_raw)
   end
 
   # POST /entries or /entries.json
@@ -41,9 +44,10 @@ class EntriesController < ApplicationController
 
   # PATCH/PUT /entries/1 or /entries/1.json
   def update
+		@entry.is_published = true
     respond_to do |format|
       if @entry.update(entry_params)
-        format.html { redirect_to root_path, notice: "Entry was successfully updated." }
+        format.html { redirect_to new_entry_path, notice: "Entry was successfully updated." }
         format.json { render :show, status: :ok, location: @entry }
       else
         format.html { render :edit, status: :unprocessable_entity }

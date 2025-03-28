@@ -14,4 +14,8 @@ class Entry < ApplicationRecord
 	extend FriendlyId
 	friendly_id :slug, use: :slugged
 	
+	# Scopes
+	scope :published, -> { where(is_published: true) }
+	scope :drafts, -> { where(is_published: false) }
+	
 end

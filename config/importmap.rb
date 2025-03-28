@@ -8,3 +8,4 @@ pin_all_from "app/javascript/controllers", under: "controllers"
 
 pin "imagesLoaded", to: "imagesLoaded.js"
 pin "masonry", to: "masonry.js"
+pin "filepond", preload: true # @4.32.7

@@ -1,8 +1,8 @@
 <div id="<%= dom_id entry %>" class="card">
 	<% if entry.cover.representable? %>
-		<div class="cover">
+		<%= link_to entry.url, target: "_blank", class: "cover" do %>
 			<%= image_tag url_for(entry.cover) %>
-		</div>
+		<% end %>
 	<% end %>
 	<div class="stack col gap-12">
 		<div class="stack col gap-4">

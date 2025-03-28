@@ -1,42 +1,53 @@
-<%= form_with(model: @entry) do |form| %>
-	<% if @entry.errors.any? %>
-		<div style="color: red">
-			<h2><%= pluralize(@entry.errors.count, "error") %> prohibited this entry from being saved:</h2>
-
-			<ul>
-				<% @entry.errors.each do |error| %>
-					<li><%= error.full_message %></li>
-				<% end %>
-			</ul>
+<div class="stack col gap-16 padding-24 max-width-500">
+	<%= form_with(model: @entry) do |form| %>
+		<div class="stack col gap-12">
+			<% if @entry.errors.any? %>
+				<div style="color: red">
+					<h2><%= pluralize(@entry.errors.count, "error") %> prohibited this entry from being saved:</h2>
+			
+					<ul>
+						<% @entry.errors.each do |error| %>
+							<li><%= error.full_message %></li>
+						<% end %>
+					</ul>
+				</div>
+			<% end %>
+			<div class="stack col gap-6">
+				<%= form.label :cover, style: "display: block" %>
+				<div class="stack col gap-12" data-controller="cover-upload">
+					<%= form.file_field :cover, multiple: false, direct_upload: true, data: { cover_upload_target: "input", data_max_files: 1 } %>
+				</div>
+			</div>
+			<div class="stack col gap-6">
+				<%= form.label :url, style: "display: block" %>
+				<%= form.text_field :url %>
+			</div>
+			<div class="stack col gap-6">
+				<%= form.label :category, style: "display: block" %>
+				<div class="stack row gap-6">
+					<%= form.collection_radio_buttons(:category_id, Category.all, :id, :name, required: true) do |category| %>
+						<div class="radio">
+							<%= category.radio_button %>
+							<%= category.label %>
+						</div>
+					<% end %>
+				</div>	
+			</div>
+			<div class="stack col gap-6">
+				<%= form.label :title, style: "display: block" %>
+				<%= form.text_field :title %>
+			</div>
+			<div class="stack col gap-6">
+				<%= form.label :caption, style: "display: block" %>
+				<%= form.text_area :caption %>
+			</div>
+			<div>
+				<%= form.submit "Publish", class: "btn primary" %>
+			</div>
 		</div>
 	<% end %>
-	
-	<div>
-		<%= form.label :cover, style: "display: block" %>
-		<%= form.file_field :cover %>
-	</div>
-
-	<div>
-		<%= form.label :url, style: "display: block" %>
-		<%= form.text_field :url %>
-	</div>
-	
-	<div>
-		<%= form.label :category, style: "display: block" %>
-		<%= form.collection_select(:category_id, Category.all, :id, :name, {:prompt => 'Pick a category'}, required: true) %>
-	</div>
-
-	<div>
-		<%= form.label :title, style: "display: block" %>
-		<%= form.text_field :title %>
-	</div>
-
-	<div>
-		<%= form.label :caption, style: "display: block" %>
-		<%= form.text_field :caption %>
-	</div>
-
-	<div>
-		<%= form.submit %>
-	</div>
-<% end %>
+	<%= @metadata["images"] %>
+	<% @metadata["images"].each do |image| %>
+		<%= image_tag url_for(image) %>
+	<% end %>
+</div>
