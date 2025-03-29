@@ -92,11 +92,13 @@ body {
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) { 	
 	.card-sizer, .card { width: 100dvw; } 
+	.card { padding: 4.7dvw 5dvw; }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
 	.card-sizer, .card { width: 50dvw; }
+	.card { padding: 4.7dvw 5dvw; }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
