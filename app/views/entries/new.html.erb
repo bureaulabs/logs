@@ -19,7 +19,7 @@
 				</div>
 				<div class="stack col gap-6">
 					<%= form.label :category, style: "display: block" %>
-					<div class="stack row gap-6">
+					<div class="stack row gap-6 wrap-children">
 						<%= form.collection_radio_buttons(:category_id, Category.all, :id, :name, required: true) do |category| %>
 							<div class="radio">
 								<%= category.radio_button %>

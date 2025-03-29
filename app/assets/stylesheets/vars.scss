@@ -186,6 +186,7 @@ span { font-size: var(--text-size-s); }
 		&.push-start { align-items: flex-start; }
 		&.push-middle { justify-content: center; }
 		&.push-end { align-items: flex-end; }
+		&.wrap-children { flex-wrap: wrap; }
 	}
 	&.col { 
 		width: 100%;

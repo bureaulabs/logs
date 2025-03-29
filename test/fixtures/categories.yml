@@ -9,3 +9,23 @@ two:
   name: Case Studies
   slug: case-studies
   description: 
+
+three:
+  name: Resources
+  slug: resources
+  description: 
+
+four:
+  name: Projects
+  slug: projects
+  description: 
+
+five:
+  name: Knowledge
+  slug: knowledge
+  description: 
+
+six:
+  name: Ref
+  slug: ref
+  description: 
