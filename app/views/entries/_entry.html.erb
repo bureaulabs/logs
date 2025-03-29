@@ -9,7 +9,7 @@
 			<p style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap;"><%= link_to entry.title, entry.url, target: "_blank" %></p>
 			<p class="fg-secondary"><%= entry.caption %></p>
 		</div>
-		<div class="stack row gap-4">
+		<div class="stack row gap-4 wrap-children">
 			<% if working_url?(entry.site.favicon) %>
 				<span class="flair default with-icon">
 					<i class="favicon"><%= image_tag url_for(entry.site.favicon) %></i>
