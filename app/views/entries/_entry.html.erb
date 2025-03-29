@@ -1,6 +1,6 @@
 <div id="<%= dom_id entry %>" class="card">
 	<% if entry.cover.representable? %>
-		<%= link_to entry.url, target: "_blank", class: "cover" do %>
+		<%= link_to entry.url, target: "_blank", class: "cover", style: "aspect-ratio: #{ entry.cover.metadata["width"].to_f / entry.cover.metadata["height"].to_f }" do %>
 			<%= image_tag url_for(entry.cover) %>
 		<% end %>
 	<% end %>
