@@ -104,19 +104,23 @@ body {
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
 	.card-sizer, .card { width: 33.33dvw; }
+	.card { padding: 2.7dvw 3dvw; }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
 	.card-sizer, .card { width: 33.33dvw; }
+	.card { padding: 2.7dvw 3dvw; }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
 	.card-sizer, .card { width: 33.33dvw; }
+	.card { padding: 2.7dvw 3dvw; }
 }
 
 /* Extra large devices (large laptops and desktops, 100px and up) */
 @media only screen and (min-width: 1920px) {
 	.card-sizer, .card { width: 25dvw; }
+	.card { padding: 2.7dvw 3dvw; }
 }
