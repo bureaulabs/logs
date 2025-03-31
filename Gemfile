@@ -23,7 +23,7 @@ gem "solid_cable"
 gem "bcrypt", "~> 3.1"
 gem "friendly_id", "~> 5.5.0"
 gem "image_processing", "~> 1.2"
-gem "aws-sdk-s3", "1.170", require: false
+gem "aws-sdk-s3", "1.177.0", require: false
 gem "aws-sdk-core", "3.211"
 gem "view_component"
 gem "meta-tags"
