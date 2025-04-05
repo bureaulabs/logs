@@ -31,14 +31,30 @@ body {
 		bottom: 0;
 		left: -1px;
 	}
-	& .cover { 
-		border-radius: 6px; 
-		overflow: hidden;
-		& > * { 
-			display: block;
-			border-radius: inherit; 
+	& .cover-container { 
+		position: relative;
+		& .cover, 
+		& .cover-loading {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			border-radius: 6px; 
+			overflow: hidden;
+			& > img, 
+			& > video { 
+				border-radius: inherit; 
+			}
 		}
 	}
+}
+
+.cover-loading {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: $fg-tertiary
 }
 
 .site {
@@ -115,7 +131,7 @@ body {
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1366px) {
-	.card-sizer, .card { width: 20dvw; }
+	.card-sizer, .card { width: 25dvw; }
 	.card { padding: 1.5% 1.7%; }
 }
 

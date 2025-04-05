@@ -1,4 +1,4 @@
-<%= turbo_frame_tag :media, style: "aspect-ratio: #{ @entry.cover.metadata["width"].to_f / @entry.cover.metadata["height"].to_f }" do %>
+<%= turbo_frame_tag :media, class: "cover-container", style: "aspect-ratio: #{ @entry.cover.metadata["width"].to_f / @entry.cover.metadata["height"].to_f }" do %>
 	<% if @entry.cover.representable? %>
 		<%= link_to @entry.url, target: "_blank", class: "cover" do %>
 			<% if @entry.cover.video? %>

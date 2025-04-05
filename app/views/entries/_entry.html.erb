@@ -1,6 +1,6 @@
 <div id="<%= dom_id entry %>" class="card">
-	<%= turbo_frame_tag :media, src: entry_path(entry), loading: :lazy, turbo_frame: "_top", style: "aspect-ratio: #{ entry.cover.metadata["width"].to_f / entry.cover.metadata["height"].to_f }" do %>
-		<div>
+	<%= turbo_frame_tag :media, src: entry_path(entry), loading: :lazy, turbo_frame: "_top", class: "cover-container", style: "aspect-ratio: #{ entry.cover.metadata["width"].to_f / entry.cover.metadata["height"].to_f }" do %>
+		<div class="cover-loading">
 			Loading...
 		</div>
 	<% end %>
