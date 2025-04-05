@@ -1,26 +1,11 @@
-<%= turbo_frame_tag post do %>
-	<div id="<%= dom_id entry %>" class="card">
-		<% if entry.cover.representable? %>
-			<%= link_to entry.url, target: "_blank", class: "cover", style: "aspect-ratio: #{ entry.cover.metadata["width"].to_f / entry.cover.metadata["height"].to_f }" do %>
-				<%= image_tag url_for(entry.cover) %>
+<%= turbo_frame_tag :media, style: "aspect-ratio: #{ @entry.cover.metadata["width"].to_f / @entry.cover.metadata["height"].to_f }" do %>
+	<% if @entry.cover.representable? %>
+		<%= link_to @entry.url, target: "_blank", class: "cover" do %>
+			<% if @entry.cover.video? %>
+				<%= video_tag url_for(@entry.cover), controls: false, autoplay: true, muted: true, loop: true, playsinline: true %>
+			<% elsif @entry.cover.image? %>
+				<%= image_tag url_for(@entry.cover) %>
 			<% end %>
 		<% end %>
-		<div class="stack col gap-12">
-			<div class="stack col gap-4">
-				<p style="text-overflow: ellipsis; overflow: hidden; white-space: nowrap;"><%= link_to entry.title, entry.url, target: "_blank" %></p>
-				<p class="fg-secondary"><%= entry.caption %></p>
-			</div>
-			<div class="stack row gap-4 wrap-children">
-				<% if working_url?(entry.site.favicon) %>
-					<span class="flair default with-icon">
-						<i class="favicon"><%= image_tag url_for(entry.site.favicon) %></i>
-						<%= entry.site.url %>
-					</span>
-				<% else %>
-					<span class="flair default"><%= entry.site.url %></span>
-				<% end %>
-				<span class="flair default"><%= entry.category.name %></span>
-			</div>
-		</div>
-	</div>
+	<% end %>
 <% end %>

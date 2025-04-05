@@ -1,5 +1,5 @@
 class EntriesController < ApplicationController
-	allow_unauthenticated_access only: [:index]
+	allow_unauthenticated_access only: [:index, :show]
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
 
   # GET /entries or /entries.json

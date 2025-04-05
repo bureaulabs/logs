@@ -8,8 +8,5 @@
 	<div class="card-sizer"></div>
 	<% @entries.each do |entry| %>
 		<%= render entry %>
-		<%= turbo_frame_tag entry, src: entry_path(entry), loading: :lazy, turbo_frame: "_top" do %>
-			Loading...
-		<% end %>
 	<% end %>
 </div>
